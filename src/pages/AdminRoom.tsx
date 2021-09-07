@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useHistory, useParams } from "react-router-dom";
 
 import logoImg from "../assets/images/logo.svg";
@@ -9,19 +11,16 @@ import { Button } from "../components/Button";
 import { Question } from "../components/Question";
 import { RoomCode } from "../components/RoomCode";
 
-// import { useAuth } from "../hooks/useAuth";
 import { useRoom } from "../hooks/useRoom";
 import { database } from "../services/firebase";
 
 import "../styles/room.scss";
-import React from "react";
 
 type RoomParams = {
   id: string;
 };
 
 export function AdminRoom() {
-  // const { user } = useAuth();
   const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
@@ -106,7 +105,7 @@ export function AdminRoom() {
                   type="button"
                   onClick={() => handleDeleteQuestion(question.id)}
                 >
-                  <img src={deleteImg} alt="Remover pergunta" />
+                  <img id="delete" src={deleteImg} alt="Remover pergunta" />
                 </button>
               </Question>
             );
